@@ -25,22 +25,19 @@ exports.listMovie = async () => {
     }
 }
 
-// updateObj = actor, filterObj = movie title
-exports.updMovie = async (updateObj, filterObj)=>{
+exports.updateMovie = async (updateObj, filterObj) => {
     try {
-        const response = await Movie.update(updateObj, {where: filterObj});
-        if (response[0]> 0) {
-            console.log("succesfully updated");
-        } else {
-            console.log("Something went wrong");
-        }
-        
-        console.log(response);
-    
-    } catch (error){
-        console.log(error)
+      //find a movie and update a column
+      const response = await Movie.update(updateObj, { where: filterObj });
+      if (response[0] > 0) {
+        console.log("Successfully updated");
+      } else {
+        console.log("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
     }
-}
+  };
 
 // Delete Movie
 exports.delMovie = async (filterObj) => {
